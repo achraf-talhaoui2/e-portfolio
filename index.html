@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio</title>
+<meta name="description" content="E-portfolio : projets, parcours, mobilité internationale, engagement et activités.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbfcff;--alt:#f0f4ff;--card:#fff;--ink:#18203a;--mute:#566080;--acc:#3d5afe;--acc2:#12b5a6;--warm:#ff8a5b;--line:#e1e6f5;--hi:#18203a;--ha:#3d5afe;--hsoft:#4b5675;--stat:rgba(255,255,255,.7);--hl:rgba(24,32,58,.14);--herobg:radial-gradient(620px 320px at 92% 8%,rgba(255,138,91,.28),transparent),radial-gradient(520px 320px at 0% 100%,rgba(18,181,166,.24),transparent),linear-gradient(135deg,#eaf0ff,#f5efff 55%,#fff4ee);color-scheme:light}
+[data-theme=dark]{--bg:#0c1322;--alt:#101a30;--card:#131c30;--ink:#e8ecf5;--mute:#9aa6bd;--acc:#8ba5ff;--acc2:#3ddbc9;--line:#243049;--hi:#f2f5fb;--ha:#9db8ff;--hsoft:#b3bfd8;--stat:rgba(255,255,255,.06);--hl:rgba(255,255,255,.2);--herobg:linear-gradient(135deg,#0a1020,#141c3c);color-scheme:dark}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--bg);color:var(--ink);font:400 1rem/1.7 Manrope,system-ui,sans-serif;transition:background .3s}
+h1,h2,h3,h4{font-family:"Source Serif 4",Georgia,serif;line-height:1.2}
+a{color:var(--acc)}
+:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+.wrap{max-width:1040px;margin:auto;padding:0 1.5rem}
+section{padding:5rem 0;border-top:1px solid var(--line)}
+main section:nth-of-type(even){background:var(--alt)}
+h2:after{content:"";display:block;width:56px;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--acc),var(--acc2),var(--warm));margin-top:.7rem}
+.card{box-shadow:0 8px 24px -16px rgba(40,60,140,.25)}
+h2{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:700;margin-bottom:.5rem}
+h3{font-size:1.4rem;margin-bottom:1rem}
+.sub{color:var(--mute);margin-bottom:2.2rem;max-width:60ch}
+#bar{position:fixed;top:0;left:0;height:3px;background:var(--acc);width:0;z-index:40}
+nav{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:.2rem;height:60px;overflow-x:auto}
+nav a.l{color:var(--mute);text-decoration:none;padding:.4rem .8rem;white-space:nowrap;font-size:.93rem;font-weight:500;border-bottom:2px solid transparent}
+nav a.l:hover{color:var(--ink)}
+nav a.l.on{color:var(--acc);border-color:var(--acc)}
+.sp{flex:1}
+button{font:inherit;font-size:.88rem;font-weight:500;cursor:pointer;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.35rem .8rem;transition:.15s}
+button:hover{border-color:var(--acc);color:var(--acc)}
+#hero{background:var(--herobg);color:var(--hi);padding:5.5rem 0;border:0}
+.hero-in{display:grid;grid-template-columns:1.4fr 1fr;gap:3rem;align-items:center}
+h1{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:700;letter-spacing:-.01em}
+.role{color:var(--ha);font-size:1.2rem;font-weight:500;margin:.9rem 0 1.2rem;min-height:1.9rem}
+.role:after{content:"";display:inline-block;width:2px;height:1.1em;background:var(--ha);margin-left:4px;vertical-align:-.15em;animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+#tag{color:var(--hsoft);max-width:52ch}
+.cta{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.8rem}
+.btn{background:var(--acc);color:#fff;border:0;padding:.7rem 1.3rem;text-decoration:none;border-radius:8px;font-weight:600;font-size:.95rem;display:inline-block;transition:filter .15s}
+.btn:hover{filter:brightness(1.12);color:#fff}
+.btn.alt{background:transparent;color:inherit;border:1px solid var(--line)}
+.btn.alt:hover{color:var(--acc);border-color:var(--acc);filter:none}
+#hero .btn{background:var(--acc);color:#fff}
+#hero .btn.alt{background:rgba(255,255,255,.55);color:var(--hi);border:1px solid var(--hl)}
+.photo{aspect-ratio:4/5;max-width:340px;width:100%;justify-self:end;border-radius:16px;overflow:hidden;background:linear-gradient(135deg,var(--acc),var(--acc2));display:grid;place-items:center;font:700 3.5rem "Source Serif 4";color:#fff;border:6px solid #fff;box-shadow:0 24px 50px -20px rgba(61,90,254,.55)}
+.photo img{width:100%;height:100%;object-fit:cover}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:1px;margin-top:3.5rem;background:var(--hl);border-radius:14px;overflow:hidden;border:1px solid var(--hl)}
+.stat{background:var(--stat);backdrop-filter:blur(8px);padding:1.1rem 1.2rem}
+.stat b{display:block;font:700 2rem "Source Serif 4"}
+.stat span{color:var(--hsoft);font-size:.88rem}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem}
+.chip{font-size:.8rem;padding:.12rem .65rem;border-radius:6px;border:1px solid var(--line);color:var(--mute);background:transparent;font-weight:500}
+button.chip{cursor:pointer;padding:.3rem .8rem;font-size:.85rem}
+.chip.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.pb .chip{background:var(--alt);border-color:transparent;color:var(--acc)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.3rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.5rem;transition:border-color .2s,box-shadow .2s}
+.two{display:grid;grid-template-columns:1.2fr 1fr;gap:1.3rem;margin-bottom:3.5rem}
+.sk{margin:.7rem 0}
+.sk div{display:flex;justify-content:space-between;font-size:.92rem}
+.trk{height:6px;background:var(--line);border-radius:9px;overflow:hidden;margin-top:4px}
+.trk i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--acc),var(--acc2));border-radius:9px;transition:width 1s ease}
+#radar{width:100%;max-width:360px;display:block;margin:auto}
+.proj{padding:0;overflow:hidden;cursor:pointer;text-align:left;color:inherit;display:flex;flex-direction:column;font-weight:400;font-size:1rem}
+.proj:hover{border-color:var(--acc);box-shadow:0 12px 30px -14px rgba(20,40,100,.35);color:inherit}
+.pimg{height:160px;background:linear-gradient(135deg,var(--acc),var(--acc2));display:grid;place-items:center;font:700 2.2rem "Source Serif 4";color:#fff;overflow:hidden}
+.pimg img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.proj:hover .pimg img{transform:scale(1.04)}
+.pb{padding:1.3rem}
+.pb p{color:var(--mute);font-size:.95rem;margin:.5rem 0 .9rem}
+.solo{grid-template-columns:1fr}.solo .proj{flex-direction:row}.solo .pimg{width:46%;height:auto;min-height:260px}.solo .pb{padding:1.8rem}
+@media(max-width:760px){.solo .proj{flex-direction:column}.solo .pimg{width:100%;height:190px;min-height:0}}
+.tl{border-left:2px solid var(--line);padding-left:1.8rem;margin-left:.4rem}
+.ev{position:relative;margin-bottom:1.6rem;cursor:pointer}
+.ev:before{content:"";position:absolute;left:-2.4rem;top:.45rem;width:12px;height:12px;border-radius:50%;background:var(--bg);border:3px solid var(--acc);transition:.2s}
+.ev:hover:before,.ev.open:before{background:var(--acc)}
+.ev small{color:var(--mute)}
+.ev p{max-height:0;overflow:hidden;transition:max-height .4s;color:var(--mute)}
+.ev.open p{max-height:300px;margin-top:.4rem}
+.langs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.3rem;margin-bottom:1.3rem}
+.lv{display:flex;justify-content:space-between;align-items:baseline}
+.lv b{font:700 1.6rem "Source Serif 4";color:var(--acc)}
+.pins{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+.pin{padding:.3rem .9rem;border-radius:6px;background:linear-gradient(90deg,var(--acc),var(--acc2));color:#fff;font-weight:500;font-size:.9rem}
+.act{padding:0;overflow:hidden}
+.aimg{height:190px;background:linear-gradient(135deg,var(--warm),var(--acc));overflow:hidden;display:grid;place-items:center;font:700 2.4rem "Source Serif 4";color:#fff}
+.aimg img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.act:hover .aimg img{transform:scale(1.05)}
+dialog{border:1px solid var(--line);border-radius:16px;background:var(--card);color:var(--ink);max-width:700px;width:92%;max-height:90vh;overflow:auto;padding:1.8rem;margin:auto}
+dialog::backdrop{background:#0008;backdrop-filter:blur(3px)}
+form{display:grid;gap:.7rem;max-width:520px;margin-bottom:1.2rem}
+input,textarea{font:inherit;padding:.75rem;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--mute);font-size:.9rem;text-align:center}
+@media(max-width:800px){.hero-in,.two{grid-template-columns:1fr}.photo{justify-self:start;max-width:220px;order:-1}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+@media print{nav,#bar,.cta,form,button{display:none!important}section{padding:1.5rem 0;break-inside:avoid}#hero{background:none;color:#000}#tag,.stat span{color:#333}.stat{background:none}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<nav><div class="wrap" id="nav"></div></nav>
+<header id="hero"><div class="wrap">
+  <div class="hero-in">
+    <div>
+      <p id="hello" style="color:var(--hsoft)"></p>
+      <h1 id="hname"></h1>
+      <div class="role" id="type"></div>
+      <p id="tag"></p>
+      <div class="cta" id="cta"></div>
+    </div>
+    <div class="photo" id="photo"></div>
+  </div>
+  <div class="stats" id="stats"></div>
+</div></header>
+<main>
+<section id="engineering"><div class="wrap">
+  <h2 data-s="eng"></h2><p class="sub" data-s="engSub"></p>
+  <div class="two"><div class="card" id="skills"></div><div class="card"><h4 data-s="radar" style="margin-bottom:.5rem"></h4><svg id="radar" viewBox="-130 -125 260 250" role="img"></svg></div></div>
+  <h3 data-s="projects"></h3>
+  <div class="chips" id="filters" style="margin-bottom:1.3rem"></div>
+  <div class="grid" id="projects"></div>
+</div></section>
+<section id="career"><div class="wrap">
+  <h2 data-s="career"></h2><p class="sub" data-s="careerSub"></p>
+  <div class="cta" id="cvs" style="margin:0 0 2.4rem"></div>
+  <div class="tl" id="tl"></div>
+</div></section>
+<section id="mobility"><div class="wrap">
+  <h2 data-s="mob"></h2><p class="sub" data-s="mobSub"></p>
+  <div class="langs" id="langs"></div>
+  <div class="card"><p id="mobTxt"></p><div class="pins" id="pins"></div></div>
+</div></section>
+<section id="engagement"><div class="wrap">
+  <h2 data-s="eng2"></h2><p class="sub" data-s="eng2Sub"></p>
+  <div class="grid" id="eng"></div>
+</div></section>
+<section id="activities"><div class="wrap">
+  <h2 data-s="act"></h2><p class="sub" data-s="actSub"></p>
+  <div class="grid" id="acts"></div>
+</div></section>
+<section id="contact"><div class="wrap">
+  <h2 data-s="contact"></h2><p class="sub" data-s="contactSub"></p>
+  <form id="form">
+    <input name="n" required data-ph="fName"><input name="e" type="email" required data-ph="fMail">
+    <textarea name="m" rows="4" required data-ph="fMsg"></textarea>
+    <button class="btn" data-s="send"></button>
+  </form>
+  <div class="cta" id="links" style="margin-top:0"></div>
+</div></section>
+</main>
+<footer id="foot"></footer>
+<dialog id="mod"></dialog>
+
+<script>
+/* =====================================================================
+   ZONE À MODIFIER : toutes les informations personnelles sont ici.
+   Chaque texte a une version FR et EN. Ne touche pas au code en dessous.
+   Images : place-les à côté de index.html (ou dans /assets) et écris le chemin.
+   Laisse "" pour un visuel neutre avec tes initiales.
+   ===================================================================== */
+const P = {
+  name: "Achraf Talhaoui",
+  photo: "photo.jpg",
+  email: "achraf.talhaoui@toulouse-inp.fr",
+  linkedin: "https://www.linkedin.com/in/achraf-talhaoui-8221b5387",
+  github: "https://github.com/achraf-talhaoui2",
+  cv: { fr: "CV_FR.pdf", en: "CV_EN.pdf" },
+  roles: {
+    fr: ["Étudiant ingénieur", "Sciences du numérique, ENSEEIHT", "Parcours Réseaux"],
+    en: ["Engineering student", "Digital Sciences, ENSEEIHT", "Networks track"]
+  },
+  tagline: {
+    fr: "Étudiant ingénieur en sciences du numérique à l’ENSEEIHT (Toulouse INP), en deuxième année du parcours Réseaux.",
+    en: "Computer science engineering student at ENSEEIHT (Toulouse INP), second year of the Networks track."
+  },
+  stats: [[1, { fr: "projet réseau", en: "network project" }], [4, { fr: "langues", en: "languages" }], [4, { fr: "années d’études supérieures", en: "years of higher education" }], [3, { fr: "sports pratiqués", en: "sports practised" }]],
+  skills: {            // [nom] ou [nom, niveau de 0 à 100] : sans niveau, la compétence s’affiche en pastille
+    "Langages": [["Java"], ["C"], ["Ada"], ["MATLAB"], ["Python"]],
+    "Outils et systèmes": [["Linux"], ["Windows"], ["Git"], ["Docker"]],
+    "Savoir-être": [["Travail d’équipe"]]
+  },
+  radar: [],           // optionnel : [["Code", 85], ["Data", 70], ...] (6 axes). Vide = pas de radar
+  projects: [
+    { title: { fr: "Infrastructure réseau virtualisée multi-sites", en: "Virtualised multi-site network infrastructure" },
+      tag: "Réseaux", img: "projet-reseau.svg",
+      desc: {
+        fr: "Projet réalisé en binôme avec Yassine Samari (2026-2027, en cours). Nous simulons un réseau d’entreprise de deux sites reliés par un opérateur simulé et par un tunnel VPN chiffré WireGuard. Les routeurs FRRouting s’exécutent dans des conteneurs Docker orchestrés par Containerlab, ce qui rend l’ensemble reproductible en une commande.",
+        en: "Project carried out in pairs with Yassine Samari (2026-2027, ongoing). We simulate an enterprise network made of two sites linked by a simulated ISP and by an encrypted WireGuard VPN tunnel. FRRouting routers run in Docker containers orchestrated by Containerlab, so the whole setup can be reproduced with a single command."
+      },
+      points: {
+        fr: ["Routage dynamique eBGP entre les deux sites (AS 65001 et 65002) et l’opérateur (AS 65000)", "Segmentation clients et serveurs, DHCP et DNS avec dnsmasq, serveur web Nginx", "NAT en sortie et pare-feu nftables à politique de refus par défaut", "VPN site à site WireGuard : le trafic entre les sites ne transite pas en clair par l’opérateur", "Scripts de déploiement et de tests automatisés, dont des scénarios de panne avec mesure de la convergence", "Pistes d’amélioration identifiées : VLAN 802.1Q, redondance DNS, haute disponibilité des routeurs"],
+        en: ["Dynamic eBGP routing between the two sites (AS 65001 and 65002) and the ISP (AS 65000)", "Client and server segmentation, DHCP and DNS with dnsmasq, Nginx web server", "Outbound NAT and nftables firewall with a default-deny policy", "WireGuard site-to-site VPN: inter-site traffic never crosses the ISP in clear", "Automated deployment and test scripts, including failure scenarios with convergence measurement", "Identified improvements: 802.1Q VLANs, DNS redundancy, router high availability"]
+      },
+      stack: ["Containerlab", "Docker", "FRRouting", "BGP", "WireGuard", "nftables", "dnsmasq", "Nginx"],
+      links: [["GitHub", "https://github.com/achraf-talhaoui2/Reseau-entreprise-virtualise"]] }
+  ],
+  career: [      // du plus récent au plus ancien
+    { role: { fr: "ENSEEIHT, 2e année, parcours Réseaux", en: "ENSEEIHT, 2nd year, Networks track" }, org: "ENSEEIHT, Toulouse INP", place: "Toulouse", date: "2026 – en cours",
+      desc: { fr: "Deuxième année du cycle ingénieur en sciences du numérique, avec spécialisation en réseaux. Je réalise avec Yassine Samari une infrastructure réseau virtualisée multi-sites.", en: "Second year of the digital sciences engineering programme, specialising in networks. With Yassine Samari, I am building a virtualised multi-site network infrastructure." } },
+    { role: { fr: "Stage ouvrier : saisie et traitement de données techniques", en: "Worker internship: technical data entry and processing" }, org: "[Nom de l’entreprise]", place: "Maroc", date: "2026",
+      desc: { fr: "Stage ouvrier de première année centré sur la saisie et le traitement de données techniques. J’ai saisi, vérifié et organisé des données de l’entreprise en veillant à leur exactitude et à leur cohérence, puis contribué à leur mise en forme pour qu’elles soient exploitables par les équipes. Ce stage m’a appris la rigueur, la fiabilité dans un travail répétitif et le respect de la confidentialité des données. Il m’a aussi fait découvrir le fonctionnement concret d’une entreprise et le rôle de chacun dans la chaîne de production.",
+              en: "First-year worker internship focused on technical data entry and processing. I entered, checked and organised company data, making sure it was accurate and consistent, then helped format it so that teams could use it. The internship taught me rigour, reliability in repetitive work and respect for data confidentiality. It also showed me how a company really works and the role of each person in the production chain." } },
+    { role: { fr: "ENSEEIHT, 1re année, Sciences du numérique", en: "ENSEEIHT, 1st year, Digital Sciences" }, org: "ENSEEIHT, Toulouse INP", place: "Toulouse", date: "2025 – 2026",
+      desc: { fr: "Première année du cycle ingénieur en sciences du numérique.", en: "First year of the digital sciences engineering programme." } },
+    { role: { fr: "Classe préparatoire MP*, 2e année", en: "Preparatory class MP*, 2nd year" }, org: "Classes préparatoires scientifiques", place: "Maroc", date: "2024 – 2025",
+      desc: { fr: "Deuxième année de classe préparatoire scientifique, filière MP* (mathématiques et physique).", en: "Second year of scientific preparatory classes, MP* track (mathematics and physics)." } },
+    { role: { fr: "Classe préparatoire MPSI, 1re année", en: "Preparatory class MPSI, 1st year" }, org: "Classes préparatoires scientifiques", place: "Maroc", date: "2023 – 2024",
+      desc: { fr: "Première année de classe préparatoire scientifique, filière MPSI (mathématiques, physique et sciences de l’ingénieur).", en: "First year of scientific preparatory classes, MPSI track (mathematics, physics and engineering sciences)." } }
+  ],
+  languages: [   // [nom, niveau affiché, jauge de 0 à 100]
+    [{ fr: "Français", en: "French" }, { fr: "Courant", en: "Fluent" }, 90],
+    [{ fr: "Anglais", en: "English" }, { fr: "Courant", en: "Fluent" }, 85],
+    [{ fr: "Arabe", en: "Arabic" }, { fr: "Langue maternelle", en: "Native" }, 100],
+    [{ fr: "Espagnol", en: "Spanish" }, { fr: "Débutant", en: "Beginner" }, 25]
+  ],
+  mobility: {
+    fr: "Pays déjà visités : le Maroc, mon pays d’origine, et l’Espagne.",
+    en: "Countries already visited: Morocco, my country of origin, and Spain."
+  },
+  destinations: [{ fr: "Maroc (pays d’origine)", en: "Morocco (home country)" }, { fr: "Espagne", en: "Spain" }],
+  engagement: [
+    { title: { fr: "[Association ou engagement]", en: "[Association or involvement]" },
+      text: { fr: "[À compléter : ton rôle, depuis quand, ce que ça t’apporte]", en: "[To complete: your role, since when, what it brings you]" } }
+  ],
+  activities: [
+    { img: "musculation.svg", title: { fr: "Musculation", en: "Weight training" }, text: { fr: "Pratiquée depuis 1 an.", en: "Practised for 1 year." } },
+    { img: "natation.svg", title: { fr: "Natation", en: "Swimming" }, text: { fr: "Pratiquée depuis 2 ans.", en: "Practised for 2 years." } },
+    { img: "badminton.svg", title: { fr: "Badminton", en: "Badminton" }, text: { fr: "Pratiqué depuis 6 mois.", en: "Practised for 6 months." } }
+  ]
+};
+/* =====================  FIN DE LA ZONE À MODIFIER  ===================== */
+
+const UI = {
+  fr: { hello:"Portfolio de", nav:["Accueil","Ingénierie","Parcours","Mobilité","Engagement","Activités","Contact"],
+    eng:"Ingénierie", engSub:"Compétences techniques et projets réalisés. Cliquez sur un projet pour en voir le détail.", radar:"Profil de compétences", projects:"Projets", all:"Tous",
+    career:"Parcours", careerSub:"Formation, stage et documents. Cliquez sur une étape pour la déplier.", mob:"Mobilité internationale", mobSub:"Langues parlées et pays visités.",
+    eng2:"Engagement", eng2Sub:"Vie associative et citoyenne.", act:"Activités", actSub:"Centres d’intérêt en dehors des études.",
+    contact:"Contact", contactSub:"Un stage, un projet, une question : n’hésitez pas à me contacter.", send:"Envoyer par e-mail", fName:"Nom", fMail:"Adresse e-mail", fMsg:"Message",
+    cv:"Télécharger mon CV", seeProj:"Voir mes projets", close:"Fermer", dark:"Mode sombre", light:"Mode clair", rights:"Tous droits réservés." },
+  en: { hello:"Portfolio of", nav:["Home","Engineering","Career","Mobility","Engagement","Activities","Contact"],
+    eng:"Engineering", engSub:"Technical skills and completed projects. Click a project for details.", radar:"Skills profile", projects:"Projects", all:"All",
+    career:"Career", careerSub:"Education, internship and documents. Click a step to expand it.", mob:"International mobility", mobSub:"Languages spoken and countries visited.",
+    eng2:"Engagement", eng2Sub:"Community and civic involvement.", act:"Activities", actSub:"Interests outside of my studies.",
+    contact:"Contact", contactSub:"An internship, a project, a question: feel free to get in touch.", send:"Send by e-mail", fName:"Name", fMail:"E-mail address", fMsg:"Message",
+    cv:"Download my CV", seeProj:"See my projects", close:"Close", dark:"Dark mode", light:"Light mode", rights:"All rights reserved." }
+};
+const IDS = ["hero","engineering","career","mobility","engagement","activities","contact"];
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const store = { get:k=>{try{return localStorage.getItem(k)}catch(e){return null}}, set:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}} };
+let lang = store.get("lang") || ((navigator.language||"fr").slice(0,2) === "en" ? "en" : "fr");
+let theme = store.get("theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+let tagFilter = "all", typeTimer;
+const RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const L = o => (o && typeof o === "object" && !Array.isArray(o)) ? (o[lang] || o.fr) : o;
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const ini = n => n.split(" ").map(w => w[0]).join("").slice(0, 2).toUpperCase();
+const cssv = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+
+function render(){
+  const u = UI[lang];
+  document.documentElement.lang = lang; document.documentElement.dataset.theme = theme;
+  document.title = P.name + " – Portfolio";
+  $$("[data-s]").forEach(e => e.textContent = u[e.dataset.s]);
+  $$("[data-ph]").forEach(e => e.placeholder = u[e.dataset.ph]);
+  $("#nav").innerHTML = `<strong style="font-family:'Source Serif 4';font-size:1.2rem;margin-right:.8rem">${esc(ini(P.name))}</strong>` +
+    IDS.map((id,i)=>`<a class="l" href="#${id}" data-id="${id}">${u.nav[i]}</a>`).join("") +
+    `<span class="sp"></span><button id="bt">${theme==="dark"?u.light:u.dark}</button><button id="bl" style="margin-left:.4rem">${lang==="fr"?"EN":"FR"}</button>`;
+  $("#hello").textContent = u.hello; $("#hname").textContent = P.name; $("#tag").textContent = L(P.tagline);
+  $("#photo").innerHTML = P.photo ? `<img src="${esc(P.photo)}" alt="${esc(P.name)}" onerror="this.parentNode.textContent='${esc(ini(P.name))}'">` : esc(ini(P.name));
+  $("#stats").innerHTML = P.stats.map(([n,l])=>`<div class="stat"><b data-n="${n}">0</b><span>${esc(L(l))}</span></div>`).join("");
+  $("#cta").innerHTML = `<a class="btn" href="${esc(P.cv[lang])}" download>${u.cv}</a><a class="btn alt" href="#engineering">${u.seeProj}</a>`;
+  $("#cvs").innerHTML = `<a class="btn" href="${esc(P.cv.fr)}" download>CV (FR)</a><a class="btn alt" href="${esc(P.cv.en)}" download>CV (EN)</a><a class="btn alt" href="${esc(P.linkedin)}" target="_blank" rel="noopener">LinkedIn</a>`;
+  $("#skills").innerHTML = Object.entries(P.skills).map(([g,a])=>`<h4 style="margin:.8rem 0 .5rem">${esc(g)}</h4>` + (a.every(x=>x[1]==null) ? `<div class="chips">${a.map(([n])=>`<span class="chip" style="font-size:.9rem;padding:.25rem .8rem">${esc(n)}</span>`).join("")}</div>` : a.map(([n,v])=>v==null?`<div class="chips"><span class="chip">${esc(n)}</span></div>`:`<div class="sk"><div><span>${esc(n)}</span><span>${v}%</span></div><div class="trk"><i data-w="${v}"></i></div></div>`).join(""))).join("");
+  const rc = $("#radar").closest(".card"); rc.hidden = !P.radar.length; $(".two").style.gridTemplateColumns = P.radar.length ? "" : "1fr"; if (P.radar.length) drawRadar();
+  const tags = ["all", ...new Set(P.projects.map(p=>p.tag))];
+  $("#filters").innerHTML = tags.map(t=>`<button class="chip ${t===tagFilter?"on":""}" data-t="${esc(t)}">${t==="all"?u.all:esc(t)}</button>`).join("");
+  $("#filters").hidden = tags.length <= 2; $("#projects").classList.toggle("solo", P.projects.length === 1);
+  drawProjects();
+  $("#tl").innerHTML = P.career.map(c=>`<div class="ev" tabindex="0" role="button"><small>${esc(c.date)} · ${esc(c.org)}, ${esc(c.place)}</small><h4>${esc(L(c.role))}</h4><p>${esc(L(c.desc))}</p></div>`).join("");
+  $("#langs").innerHTML = P.languages.map(([n,lv,p])=>`<div class="card"><div class="lv"><span>${esc(L(n))}</span><b>${esc(L(lv))}</b></div><div class="trk"><i data-w="${p}"></i></div></div>`).join("");
+  $("#mobTxt").textContent = L(P.mobility); $("#pins").innerHTML = P.destinations.map(d=>`<span class="pin">${esc(L(d))}</span>`).join("");
+  $("#eng").innerHTML = P.engagement.map(e=>`<div class="card"><h4>${esc(L(e.title))}</h4><p style="color:var(--mute);margin-top:.6rem">${esc(L(e.text))}</p></div>`).join("");
+  $("#acts").innerHTML = P.activities.map(a=>`<div class="card act"><div class="aimg">${a.img?`<img src="${esc(a.img)}" alt="${esc(L(a.title))}" onerror="this.parentNode.textContent='${esc(ini(L(a.title)))}'">`:esc(ini(L(a.title)))}</div><div class="pb"><h4>${esc(L(a.title))}</h4><p style="margin-bottom:0">${esc(L(a.text))}</p></div></div>`).join("");
+  $("#links").innerHTML = [[P.email,"mailto:"+P.email],["LinkedIn",P.linkedin],["GitHub",P.github]].map(([t,h])=>`<a class="btn alt" href="${esc(h)}" target="_blank" rel="noopener">${esc(t)}</a>`).join("");
+  $("#foot").textContent = `© ${new Date().getFullYear()} ${P.name}. ${u.rights}`;
+  startType(); watch();
+}
+function drawRadar(){
+  const n = P.radar.length, R = 90, ln = cssv("--line"), pt = (i,v) => { const a = -Math.PI/2 + i*2*Math.PI/n; return [Math.cos(a)*R*v/100, Math.sin(a)*R*v/100]; };
+  const poly = v => P.radar.map((_,i)=>pt(i,v).join(",")).join(" "), acc = cssv("--acc");
+  $("#radar").innerHTML = [25,50,75,100].map(v=>`<polygon points="${poly(v)}" fill="none" stroke="${ln}"/>`).join("") +
+    P.radar.map((_,i)=>`<line x2="${pt(i,100)[0]}" y2="${pt(i,100)[1]}" stroke="${ln}"/>`).join("") +
+    `<polygon points="${P.radar.map(([,v],i)=>pt(i,v).join(",")).join(" ")}" fill="${acc}" fill-opacity=".2" stroke="${acc}" stroke-width="2"/>` +
+    P.radar.map(([t,v],i)=>{ const [x,y] = pt(i,v), [lx,ly] = pt(i,124); return `<circle cx="${x}" cy="${y}" r="3.5" fill="${acc}"/><text x="${lx}" y="${ly}" fill="${cssv("--mute")}" font-size="10" text-anchor="middle" dominant-baseline="middle">${esc(t)}</text>`; }).join("");
+}
+function drawProjects(){
+  $("#projects").innerHTML = P.projects.map((p,i)=>({p,i})).filter(({p})=>tagFilter==="all"||p.tag===tagFilter).map(({p,i})=>
+    `<button class="card proj" data-p="${i}"><div class="pimg">${p.img?`<img src="${esc(p.img)}" alt="" onerror="this.parentNode.textContent='${esc(ini(L(p.title)))}'">`:esc(ini(L(p.title)))}</div><div class="pb"><h4>${esc(L(p.title))}</h4><p>${esc(L(p.desc))}</p><div class="chips">${p.stack.map(s=>`<span class="chip">${esc(s)}</span>`).join("")}</div></div></button>`).join("");
+}
+function startType(){
+  clearInterval(typeTimer); const r = P.roles[lang], el = $("#type"); let i = 0, j = 0, del = false;
+  if (RM) { el.textContent = r[0]; return; }
+  typeTimer = setInterval(()=>{
+    const w = r[i]; j += del ? -1 : 1; el.textContent = w.slice(0, Math.max(j,0));
+    if (!del && j === w.length) { del = true; j = w.length + 16; }
+    else if (del && j <= 0) { del = false; i = (i + 1) % r.length; j = 0; }
+  }, 65);
+}
+let io;
+function watch(){
+  if (io) io.disconnect();
+  io = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return; io.unobserve(e.target);
+    e.target.querySelectorAll("[data-w]").forEach(b => b.style.width = b.dataset.w + "%");
+    e.target.querySelectorAll("[data-n]").forEach(b => count(b, +b.dataset.n));
+  }), { threshold:.25 });
+  $$("#skills,#stats,#langs").forEach(c => io.observe(c));
+}
+function count(el, to){ if (RM) { el.textContent = to; return; } let t0; const f = t => { t0 ??= t; const k = Math.min((t-t0)/1000,1); el.textContent = Math.round(to*(1-Math.pow(1-k,3))); if (k<1) requestAnimationFrame(f); }; requestAnimationFrame(f); }
+
+document.addEventListener("click", e => {
+  const t = e.target.closest("button,.ev"); if (!t) return;
+  if (t.id === "bt") { theme = theme==="dark"?"light":"dark"; store.set("theme", theme); render(); }
+  else if (t.id === "bl") { lang = lang==="fr"?"en":"fr"; store.set("lang", lang); render(); }
+  else if (t.dataset.t) { tagFilter = t.dataset.t; $$("#filters .chip").forEach(c => c.classList.toggle("on", c.dataset.t === tagFilter)); drawProjects(); }
+  else if (t.dataset.p) openProj(P.projects[t.dataset.p]);
+  else if (t.classList.contains("ev")) t.classList.toggle("open");
+});
+document.addEventListener("keydown", e => { if (e.key==="Enter" && e.target.classList.contains("ev")) e.target.classList.toggle("open"); });
+function openProj(p){
+  const pts = p.points ? `<ul style="margin:1rem 0;padding-left:1.2rem;color:var(--mute)">${L(p.points).map(x=>`<li style="margin-bottom:.35rem">${esc(x)}</li>`).join("")}</ul>` : "";
+  $("#mod").innerHTML = `${p.img?`<img src="${esc(p.img)}" alt="" style="width:100%;border-radius:10px;margin-bottom:1rem">`:""}<h3>${esc(L(p.title))}</h3><p>${esc(L(p.desc))}</p>${pts}<div class="chips">${p.stack.map(s=>`<span class="chip">${esc(s)}</span>`).join("")}</div><div class="cta">${p.links.map(([t,h])=>`<a class="btn" target="_blank" rel="noopener" href="${esc(h)}">${esc(t)}</a>`).join("")}<button onclick="this.closest('dialog').close()">${UI[lang].close}</button></div>`;
+  $("#mod").showModal();
+}
+$("#mod").addEventListener("click", e => { if (e.target.id === "mod") e.target.close(); });
+$("#form").addEventListener("submit", e => {
+  e.preventDefault(); const f = new FormData(e.target);
+  location.href = `mailto:${P.email}?subject=${encodeURIComponent("Portfolio – "+f.get("n"))}&body=${encodeURIComponent(f.get("m")+"\n\n"+f.get("n")+" <"+f.get("e")+">")}`;
+});
+addEventListener("scroll", () => {
+  const h = document.documentElement; $("#bar").style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + "%";
+  let cur = IDS[0]; IDS.forEach(id => { if ($("#"+id).getBoundingClientRect().top < innerHeight*.4) cur = id; });
+  $$("nav a.l").forEach(a => a.classList.toggle("on", a.dataset.id === cur));
+}, { passive:true });
+render(); dispatchEvent(new Event("scroll"));
+</script>
+</body>
+</html>
